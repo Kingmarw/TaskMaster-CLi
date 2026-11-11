@@ -10,11 +10,20 @@
 # to convert it into an integer. it's working
 
 # Ok , now we should put the input with conditions in Loop to continue application without stopping
-import create_task, delete_task,modify_task,view_tasks
+from time import sleep
+from rich.console import Console
+from rich import print,box,table
+import create_task, delete_task,modify_task,view_tasks,export_tasks
 import pyfiglet
 import os
+console = Console()
 os.system("cls") # clean screen
+# console.clear()
+
 pyfiglet.print_figlet("Task Master CLi",font="slant",colors="red") # TaskMaster Cli logo
+console.log("Hello, world")
+
+
 pyfiglet.print_figlet("Developed by Kingmarw", font="mini")
 while True:
     print("""
@@ -23,7 +32,8 @@ while True:
         [2] Modify Task
         [3] Delete Task
         [4] View Tasks 
-        [5] Exit
+        [5] Export Tasks
+        [6] Exit
     """) 
     choice = input("Enter your Choice > ")
 
@@ -35,7 +45,7 @@ while True:
             print("Your choice is \"Modify Task\"")
             modify_task.Modify()
         elif int(choice) == 3:
-            print("Your choice is \"Delete Task\" -> you can write command \"all\" \nto delete all items")
+            print("Your choice is \"Delete Task\" -> you can write command \"all\" to delete all items")
             delete_task.Delete()
         elif int(choice) == 4:
             os.system("cls") # clean screen
@@ -45,6 +55,9 @@ while True:
             print("Your To-Do List today is")
             view_tasks.View()
         elif int(choice) == 5:
+            print("Your choice is \"Export Tasks\"")
+            export_tasks.Export()
+        elif int(choice) == 6:
             print("Your choice is \"Exit\" See you soon")
             break
         else:
